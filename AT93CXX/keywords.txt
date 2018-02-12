@@ -2,14 +2,26 @@
 # Syntax Coloring Map 
 ###########################################
 
+
 ###########################################
 # Datatypes (KEYWORD1)
 ###########################################
-
-
+AT93CXX	KEYWORD1
+emAT93C46	KEYWORD1
+emAT93C56	KEYWORD1
+emAT93C66	KEYWORD1
+eeprom_type_def	KEYWORD1
 
 ###########################################
 # Methods and Functions (KEYWORD2)
 ###########################################
+Begin	KEYWORD2
+End	KEYWORD2
+EWEN	KEYWORD2
+EWDS	KEYWORD2
+ERAL	KEYWORD2
+ERASE	KEYWORD2
+READ	KEYWORD2
+WRITE	KEYWORD2
 
 
