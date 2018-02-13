@@ -1,0 +1,20 @@
+###########################################
+# Syntax Coloring Map 
+###########################################
+
+
+###########################################
+# Datatypes (KEYWORD1)
+###########################################
+HBridge	KEYWORD1
+hbOneWay	KEYWORD1
+hbTwoWay	KEYWORD1
+
+###########################################
+# Methods and Functions (KEYWORD2)
+###########################################
+Initialize	KEYWORD2
+Forward	KEYWORD2
+Backward	KEYWORD2
+Stop	KEYWORD2
+Break	KEYWORD2
