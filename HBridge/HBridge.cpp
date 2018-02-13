@@ -93,11 +93,20 @@ void HBridge::Break(uint8_t breakpercent = 100)
 	delay(100);	
 	if (!_break_enabled) return;	
 	
-	float pwmsignal = _pwm_signal_from + float((float(255 - _pwm_signal_from) / 100) * breakpercent);
-	switch (_motor_status) {
-	   case msForward: analogWrite(_backward_pin,(uint8_t) pwmsignal); break;
-	   case msBackward: analogWrite(_forward_pin,(uint8_t) pwmsignal); break;
-	}	
+	if (_motor_status != msStop)
+	{
+		float pwmsignal = _pwm_signal_from + float((float(255 - _pwm_signal_from) / 100) * breakpercent);
+		switch (_motor_status) {
+		   case msForward: analogWrite(_backward_pin,(uint8_t) pwmsignal); break;
+		   case msBackward: analogWrite(_forward_pin,(uint8_t) pwmsignal); break;
+		}	
+	}
+	else
+	{
+		Forward(1);
+		delay(100);		
+		Backward(1);
+	}
 
 	delay(100);		
 	_motor_last_pwm = 0;
