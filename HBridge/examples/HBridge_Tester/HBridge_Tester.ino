@@ -18,7 +18,7 @@ void setup() {
 
 void loop() {
   Serial.println("Forward 100 Percent");
-  HB.Forward(100);
+  HB.Forward();
   delay(2000);
 
   Serial.println("Stop 10 Percent Steps");
@@ -30,7 +30,7 @@ void loop() {
   delay(2000);
   
   Serial.println("Break With 100 Percent Reverse");
-  HB.Break(100); 
+  HB.Break(); 
   delay(3000);
   
   Serial.println("Backward 50 Percent");
@@ -38,14 +38,13 @@ void loop() {
   delay(2000);
   
   Serial.println("Backward 100 Percent");
-  HB.Backward(100); 
+  HB.Backward(); 
   delay(2000);
   
   Serial.println("Break With 50 Percent Reverse");
   HB.Break(50); 
   delay(3000);
 }
-
 
 
 

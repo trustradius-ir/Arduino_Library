@@ -24,14 +24,14 @@ HBridge::HBridge(uint8_t forward_pin, uint8_t backward_pin,bridge_type_def bridg
 }
 
 
-void HBridge::Initialize(uint8_t PWMsignalFrom = 80)
+void HBridge::Initialize(uint8_t PWMsignalFrom)
 {	
 	_pwm_signal_from = PWMsignalFrom;
 	if (_pwm_signal_from > 250) {_pwm_signal_from = 250;}
 }
 
 
-void HBridge::Forward(uint8_t speedpercent = 100)
+void HBridge::Forward(uint8_t speedpercent)
 {
 	if (speedpercent > 100) {speedpercent = 100;}
 	float pwmsignal = _pwm_signal_from + float((float(255 - _pwm_signal_from) / 100) * speedpercent);
@@ -41,7 +41,7 @@ void HBridge::Forward(uint8_t speedpercent = 100)
 	_motor_status = msForward;
 }
 
-void HBridge::Backward(uint8_t speedpercent = 100)
+void HBridge::Backward(uint8_t speedpercent)
 {
 	if (_bridge_type == hbOneWay)  return;
 	if (speedpercent > 100) {speedpercent = 100;}
@@ -52,7 +52,7 @@ void HBridge::Backward(uint8_t speedpercent = 100)
 	_motor_status = msBackward;
 }
 
-void HBridge::Stop(uint8_t stopsteppercent = 10)
+void HBridge::Stop(uint8_t stopsteppercent)
 {
 	if (_motor_status == msStop) return;
 	if (_motor_last_pwm <= _pwm_signal_from) 
@@ -79,7 +79,7 @@ void HBridge::Stop(uint8_t stopsteppercent = 10)
 	if (_bridge_type == hbTwoWay) { analogWrite(_backward_pin, 0); }
 }
 
-void HBridge::Break(uint8_t breakpercent = 100)
+void HBridge::Break(uint8_t breakpercent)
 {
 	if (_bridge_type == hbOneWay) 
 	{
